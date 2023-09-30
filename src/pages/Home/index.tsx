@@ -8,17 +8,26 @@ import {
   StartCountDownButton,
   TaskInput,
 } from './styles'
-
+import { useForm } from 'react-hook-form'
+// controlled / uncontrolled - conceito relacionado a trativa de inputs, sendo controlled é o controle a todo instante e uncontrolled apenas quando houver submit do form
 export function Home() {
+  const { register, handleSubmit, watch } = useForm()
+  function handleCreateNewCycle(data: any) {
+    console.log(data)
+  }
+  // observando apenas o campo task
+  const task = watch('task')
+  const isSubmitDisabled = !task
   return (
     <HomeContainer>
-      <form action="">
+      <form action="" onSubmit={handleSubmit(handleCreateNewCycle)}>
         <FormContainer>
           <label htmlFor="task">I will work in :</label>
           <TaskInput
             id="task"
             list="task-suggestions"
             placeholder="Dê um nome para o seu projeto"
+            {...register('task')}
           />
           <datalist id="task-suggestions">
             <option value="Projeto 1"></option>
@@ -34,6 +43,7 @@ export function Home() {
             step={5}
             min={5}
             max={60}
+            {...register('minutesAmount', { valueAsNumber: true })}
           />
 
           <span>minutes.</span>
@@ -46,7 +56,7 @@ export function Home() {
           <span>0</span>
           <span>0</span>
         </CountDownContainer>
-        <StartCountDownButton type="submit">
+        <StartCountDownButton type="submit" disabled={isSubmitDisabled}>
           <Play size={24}> </Play>
           Começar
         </StartCountDownButton>
