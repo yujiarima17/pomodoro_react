@@ -15,11 +15,11 @@ export const HomeContainer = styled.main`
 `
 export const CountDownContainer = styled.div`
   font-family: 'Roboto Mono', monospace;
-  font-size: 6rem;
-  line-height: 5rem;
+  font-size: 10rem;
+  line-height: 8rem;
   color: ${(props) => props.theme['gray-100']};
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   span {
     background: ${(props) => props.theme['gray-700']};
     padding: 2rem 1rem;
@@ -87,6 +87,9 @@ const BaseInput = styled.input`
 `
 export const TaskInput = styled(BaseInput)`
   flex: 1;
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
 `
 export const MinutesAmountInput = styled(BaseInput)`
   width: 4rem;
