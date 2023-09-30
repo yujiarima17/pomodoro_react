@@ -13,6 +13,29 @@ export const HomeContainer = styled.main`
     gap: 3rem;
   }
 `
+const STATUS_COLOR = {
+  yellow: 'yellow-500',
+  green: 'green-500',
+  red: 'red-500',
+} as const
+interface StatusProps {
+  statusColor: keyof typeof STATUS_COLOR
+}
+export const Status = styled.span<StatusProps>`
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  /* pseudo elemento para adicionar conteúdo extra a elementos HTML, antes no caso */
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: ${(props) => props.theme[STATUS_COLOR[props.statusColor]]};
+  }
+  &::after {
+  }
+`
 export const CountDownContainer = styled.div`
   font-family: 'Roboto Mono', monospace;
   font-size: 10rem;
