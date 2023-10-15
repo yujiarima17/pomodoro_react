@@ -3,7 +3,7 @@
 
 
 
-## Instalação
+## Install
 
 
 ```bash
