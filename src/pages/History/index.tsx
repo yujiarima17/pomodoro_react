@@ -12,9 +12,9 @@ export function History() {
         <table>
           <thead>
             <tr>
-              <th>Tarefa</th>
-              <th>Duração</th>
-              <th>Início</th>
+              <th>Task</th>
+              <th>Duration</th>
+              <th>Start</th>
               <th>Status</th>
             </tr>
           </thead>
