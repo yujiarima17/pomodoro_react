@@ -26,7 +26,7 @@ In this project I learned some libraries that I will mention below:
 
 - @styled-components 6.0.8
 
-- @zod @3.22.2
+- @zod 3.22.2
 
 improving...
 ## 🔗 Links
